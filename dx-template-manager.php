@@ -165,6 +165,9 @@ class DX_Template_Manager {
 		$commstart = strpos($content, "<?php");
 		while($commstart !== false) {
 			$commend = strpos($content, "?>");
+			if( !$commend ) {
+				$commend = strlen($content);
+			}
 			// substring with the PHP code
 			$substr = substr($content, $commstart + 5, ($commend - $commstart) - 5);
 				
